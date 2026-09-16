@@ -1,4 +1,4 @@
-name: Deploy Static Content to Pages        
+name: Deploy Static Content to Pages
 
 on:
   push:
@@ -13,10 +13,6 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: true
-
-# This forces the GitHub runner to bypass the strict Node deprecation error
-env:
-  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
 
 jobs:
   deploy:
@@ -49,4 +45,4 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4  # Bamped down to v4 compatibility if v5 is throwing structural errors
